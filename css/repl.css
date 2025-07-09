@@ -1,0 +1,70 @@
+.repl-section {
+    background: #282c34;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.repl {
+    background-color: #282c34;
+    color: #abb2bf;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    margin-bottom: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #4b5363;
+}
+
+.prompt {
+    color: #98c379;
+    font-weight: bold;
+}
+
+.input-container {
+    background: #21252b;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #4b5363;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+#user-input {
+    flex-grow: 1;
+    background-color: transparent;
+    color: #abb2bf;
+    border: none;
+    font-family: monospace;
+    padding: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.output {
+    margin-top: 5px;
+    white-space: pre-wrap;
+    padding: 3px 0;
+}
+
+.error {
+    color: #e06c75;
+    background-color: rgba(224, 108, 117, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.success {
+    color: #98c379;
+    background-color: rgba(152, 195, 121, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.info {
+    color: #61afef;
+}

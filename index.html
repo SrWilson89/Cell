@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cell Programming Language</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/repl.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧬 Cell Programming Language</h1>
+
+        <div class="tutorial">
+            <strong>💡 Tip:</strong> Haz clic en cualquier ejemplo para ejecutarlo automáticamente
+        </div>
+
+        <div class="main-content">
+            <div class="repl-section">
+                <div class="controls">
+                    <button id="clear-btn">🗑️ Limpiar</button>
+                    <button id="run-btn" class="run-button">▶️ Ejecutar</button>
+                </div>
+
+                <div class="repl" id="repl">
+                    <div class="output info"><span class="status-indicator"></span>Bienvenido al lenguaje Cell (versión web)</div>
+                    <div class="output info">Escribe expresiones Cell y presiona Enter para evaluar</div>
+                </div>
+
+                <div class="input-container">
+                    <div class="input-line">
+                        <span class="prompt">cell></span>
+                        <input type="text" id="user-input" placeholder="Escribe código Cell aquí..." autofocus>
+                    </div>
+                </div>
+
+                <div class="help-text">
+                    <strong>Atajos:</strong> Enter para ejecutar, Ctrl+L para limpiar
+                </div>
+            </div>
+
+            <div class="examples-section">
+                <div class="examples">
+                    <h3>📚 Ejemplos Interactivos</h3>
+
+                    <div class="example-category">
+                        <h4>🔢 Números Naturales</h4>
+                        <div class="example" data-code="Zero">
+                            <div class="example-code">Zero</div>
+                            <div class="example-desc">Representa el número 0</div>
+                        </div>
+                        <div class="example" data-code="Succ[Zero]">
+                            <div class="example-code">Succ[Zero]</div>
+                            <div class="example-desc">Representa el número 1 (sucesor de 0)</div>
+                        </div>
+                        <div class="example" data-code="Succ[Succ[Zero]]">
+                            <div class="example-code">Succ[Succ[Zero]]</div>
+                            <div class="example-desc">Representa el número 2</div>
+                        </div>
+                        <div class="example" data-code="'5">
+                            <div class="example-code">'5</div>
+                            <div class="example-desc">Notación abreviada para el número 5</div>
+                        </div>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>➕ Operaciones Aritméticas</h4>
+                        <div class="example" data-code="Add['3, '4]">
+                            <div class="example-code">Add['3, '4]</div>
+                            <div class="example-desc">Suma 3 + 4</div>
+                        </div>
+                        <div class="example" data-code="Evaluate[Add['1, '2]]">
+                            <div class="example-code">Evaluate[Add['1, '2]]</div>
+                            <div class="example-desc">Evalúa la suma 1 + 2</div>
+                        </div>
+                        <div class="example" data-code="Add[Add['1, '2], '3]">
+                            <div class="example-code">Add[Add['1, '2], '3]</div>
+                            <div class="example-desc">Suma anidada: (1 + 2) + 3</div>
+                        </div>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>🔍 Comparaciones</h4>
+                        <div class="example" data-code="LessThan['1, '2]">
+                            <div class="example-code">LessThan['1, '2]</div>
+                            <div class="example-desc">Compara si 1 < 2</div>
+                        </div>
+                        <div class="example" data-code="LessThan['5, '3]">
+                            <div class="example-code">LessThan['5, '3]</div>
+                            <div class="example-desc">Compara si 5 < 3</div>
+                        </div>
+                        <div class="example" data-code="Equal['2, '2]">
+                            <div class="example-code">Equal['2, '2]</div>
+                            <div class="example-desc">Compara si 2 = 2</div>
+                        </div>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>🔗 Lógica Booleana</h4>
+                        <div class="example" data-code="And[True, False]">
+                            <div class="example-code">And[True, False]</div>
+                            <div class="example-desc">Operación lógica AND</div>
+                        </div>
+                        <div class="example" data-code="Or[True, False]">
+                            <div class="example-code">Or[True, False]</div>
+                            <div class="example-desc">Operación lógica OR</div>
+                        </div>
+                        <div class="example" data-code="Not[True]">
+                            <div class="example-code">Not[True]</div>
+                            <div class="example-desc">Negación lógica</div>
+                        </div>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>🔀 Funciones Lambda</h4>
+                        <div class="example" data-code="Bind[x, y, Add[x, y]]['1, '2]">
+                            <div class="example-code">Bind[x, y, Add[x, y]]['1, '2]</div>
+                            <div class="example-desc">Función lambda que suma dos números</div>
+                        </div>
+                        <div class="example" data-code="Bind[x, Succ[x]]['5]">
+                            <div class="example-code">Bind[x, Succ[x]]['5]</div>
+                            <div class="example-desc">Función que incrementa un número</div>
+                        </div>
+                        <div class="example" data-code="Bind[x, y, LessThan[x, y]]['3, '7]">
+                            <div class="example-code">Bind[x, y, LessThan[x, y]]['3, '7]</div>
+                            <div class="example-desc">Función lambda de comparación</div>
+                        </div>
+                    </div>
+
+                    <div class="example-category">
+                        <h4>🔄 Expresiones Complejas</h4>
+                        <div class="example" data-code="Evaluate[And[LessThan['1, '2], Equal['2, '2]]]">
+                            <div class="example-code">Evaluate[And[LessThan['1, '2], Equal['2, '2]]]</div>
+                            <div class="example-desc">Expresión lógica compleja</div>
+                        </div>
+                        <div class="example" data-code="Bind[x, Add[x, x]]['3]">
+                            <div class="example-code">Bind[x, Add[x, x]]['3]</div>
+                            <div class="example-desc">Función que duplica un número</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cell-language.js"></script>
+    <script src="js/repl.js"></script>
+</body>
+</html>
